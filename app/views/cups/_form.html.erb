@@ -1,0 +1,53 @@
+<div class = "form">
+  <%= form_for [current_user, @cup] do |f| %>
+    <% if @cup.errors.any? %>
+      <% @cup.errors.full_messages.each do |message|%>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+
+    <div class="fields">
+      <%= f.label :manufacturer %><br/>
+      <%= f.text_field :manufacturer %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :model %><br/>
+      <%= f.text_field :model %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :color %><br/>
+      <%= f.text_field :color %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :size %><br/>
+      <%= f.text_field :size %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :status %><br/>
+      <%= f.text_field :status %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :number %><br/>
+      <%= f.number_field :number %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :year %><br/>
+      <%= f.date_select :year, :order => [:year], :end_year => Time.now.year, :prompt => {:year => "Select year"} %>
+    </div>
+
+    <div class="fields">
+      <%= f.label :purchasing_date %><br/>
+      <%= f.date_select :purchasing_date, :end_year => Time.now.year, :default => Time.now, :prompt => {:year => "Select year", :date => "Select date"} %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

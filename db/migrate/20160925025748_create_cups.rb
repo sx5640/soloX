@@ -1,7 +1,7 @@
 class CreateCups < ActiveRecord::Migration[5.0]
   def change
     create_table :cups do |t|
-      t.integer :year
+      t.date :year
       t.string :status
       t.integer :number
       t.string :color

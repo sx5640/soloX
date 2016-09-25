@@ -1,0 +1,16 @@
+<h1>Users#show</h1>
+<%= link_to "edit", edit_user_path%>
+  <li><%= current_user.email%></li>
+
+<h3>Your Cups</h3>
+  <% if current_user.cups.any? %>
+    <ul>
+      <% current_user.cups.each do |cup|%>
+          <li><%= link_to "#{cup.model} #{cup.manufacturer} #{cup.color}", edit_user_cup_url(current_user, cup) %></li>
+        <% end %>
+    </ul>
+  <% else %>
+    <li>YOU GOT NO CUPS</li>
+  <% end %>
+
+  <%= link_to "New Cup", new_user_cup_url(current_user) %>

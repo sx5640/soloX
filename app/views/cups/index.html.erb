@@ -1,0 +1,10 @@
+<h1>Cups#index</h1>
+<% if current_user.cups.any? %>
+  <ul>
+  <% current_user.cups.each do |cup|%>
+      <li><%= link_to "#{cup.model} #{cup.manufacturer} #{cup.color}", edit_user_cup_url(current_user, @cup) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <li>YOU GOT NO CUPS</li>
+<% end %>
